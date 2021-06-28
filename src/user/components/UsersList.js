@@ -10,7 +10,7 @@ const UserList = (props) => {
              <Card>
             <h2>No Users Found</h2>
             </Card>
-        </div>
+        </div> 
         );
     }
     return (<ul className="users-list">
