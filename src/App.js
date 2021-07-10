@@ -1,4 +1,4 @@
-import React,{useCallback,useState} from 'react';
+import React,{useCallback,useState,Fragment, useEffect} from 'react';
 import { BrowserRouter as Router,Route ,Redirect,Switch} from 'react-router-dom'; //this is helpful in client side routing with url elements. It reads the url entered by the user and helps to render different pages according to the url
 //our pages should be loaded with the help of router..
 import Users from './user/pages/Users'
@@ -8,7 +8,13 @@ import UserPlaces from './places/pages/UserPlaces';
 import Auth from './user/pages/Auth'
 import UpdatePlace from './places/pages/UpdatePlace';
 import {AuthContext} from './shared/context/Auth-context'
+import './App.css'
+import styled from 'styled-components'
 function App() {
+
+ 
+
+
   const [isLoggedIn,setisLoggedIn]=useState(false);
   const login=useCallback(()=>{
 
@@ -30,7 +36,7 @@ function App() {
       <Route path="/"  exact><Users /></Route>
 
       <Route path="/:userId/places" exact> <UserPlaces /></Route>
-      <Route path="/places/new" exact><NewPlaces/></Route>
+      <Route  path="/places/new" exact><NewPlaces/></Route>
      <Route path="/places/:placeId" exact><UpdatePlace/></Route>
     
       <Redirect to="/"/>
@@ -39,7 +45,7 @@ function App() {
     
 
 
-  }
+    }
   else
   {
     routes=(
@@ -54,8 +60,18 @@ function App() {
     
   
   }
+  
+
+
   return (
-    <AuthContext.Provider value={{isLoggedIn:isLoggedIn,login:login,logout:logout}}>
+
+    
+
+    
+    
+<AuthContext.Provider value={{isLoggedIn:isLoggedIn,login:login,logout:logout}}>
+
+
 
     <Router>
     <MainNavigation/>
@@ -65,11 +81,16 @@ function App() {
     
      </main>
      </Router>
+
      </AuthContext.Provider> 
+   
+     
+     );
+ 
+    };   
+     
 
 
-
-  );
-};
+          
 
 export default App;

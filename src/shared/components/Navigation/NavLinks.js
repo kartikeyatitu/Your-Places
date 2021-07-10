@@ -1,7 +1,8 @@
-import React,{useContext} from 'react';
+import React,{useContext,Fragment} from 'react';
 import './NavLinks.css'
 import { AuthContext } from '../../context/Auth-context';
 import { NavLink } from 'react-router-dom'
+
 import { useForm } from '../../Hooks/form-hook';
 //Navlink are special type of Link which has a special feature of activeClass  so wen u click on the link it get bolded or the css u have applied
 
@@ -28,6 +29,11 @@ const NavLinks = (props) => {
         </li>}
 
     </ul>
+    
+
+ 
+      
+   
 
 };
 export default NavLinks;

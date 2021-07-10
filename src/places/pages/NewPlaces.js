@@ -44,7 +44,9 @@ const NewPlaces = () => {
   },[]);
   */
 
-  return <form className="place-form" onSubmit={placeSubmitHandler}>
+  return <form  
+  
+  className="place-form" onSubmit={placeSubmitHandler}>
 
     <Input id="title" element="input" label="Title" validators={[VALIDATOR_REQUIRE()]} errorText="Please enter a valid titile" onInput={InputHandler} />
     <Input id="description" element="textarea" label="description" validators={[VALIDATOR_MINLENGTH(5)]} errorText="Please enter a valid description" onInput={InputHandler} />

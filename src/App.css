@@ -1,0 +1,10 @@
+.App{
+
+   background-image: url("https://source.unsplash.com/1366x784/?famous places");
+   position:fixed;
+   min-width: 100%;
+   min-height: 100%;
+   background-size: cover;
+   background-position: center;
+
+}
