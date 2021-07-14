@@ -16,15 +16,18 @@ function App() {
 
 
   const [isLoggedIn,setisLoggedIn]=useState(false);
-  const login=useCallback(()=>{
+  const [userId,setuserId]=useState();
+  const login=useCallback((uid)=>{
 
     setisLoggedIn(true);
+    setuserId(uid);
 
 
   },[])
   const logout=useCallback(()=>{
 
     setisLoggedIn(false);
+    setuserId(null);
 
 
   },[])
@@ -69,7 +72,7 @@ function App() {
 
     
     
-<AuthContext.Provider value={{isLoggedIn:isLoggedIn,login:login,logout:logout}}>
+<AuthContext.Provider value={{isLoggedIn:isLoggedIn,userId:userId,login:login,logout:logout}}>
 
 
 
