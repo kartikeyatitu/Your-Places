@@ -42,7 +42,7 @@ const Auth = () => {
       
     
               try{
-               const responseData= await sendRequest('http://localhost:5008/api/users/login', 
+               const responseData= await sendRequest(process.env.REACT_APP_BACKEND_URL +'/users/login', 
                 'POST',
                  JSON.stringify({
                     
@@ -56,7 +56,7 @@ const Auth = () => {
                     
 
                 );
-                auth.login(responseData.user.id);
+                auth.login(responseData.userId,responseData.token);
               }catch(err)
               {
 
@@ -80,12 +80,12 @@ const Auth = () => {
                formdata.append('email',formState.inputs.email.value)
                formdata.append('password',formState.inputs.password.value)
                formdata.append('image',formState.inputs.image.value)
-               const responseData= await sendRequest('http://localhost:5008/api/users/signup',  'POST',
+               const responseData= await sendRequest(process.env.REACT_APP_BACKEND_URL + '/users/signup',  'POST',
                     //note the fecth appi automatically adds the right headers for this 
                     formdata
                 );
                
-                auth.login(responseData.user.id);
+                auth.login(responseData.userId,responseData.token);
             } catch (err) {
 
               

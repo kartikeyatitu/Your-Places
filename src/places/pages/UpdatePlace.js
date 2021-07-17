@@ -80,7 +80,7 @@ const DUMMY_PLACES = [{
     const fetchPlaces = async() => {
       try{
          
-           const responseData=  await sendRequest(`http://localhost:5008/api/places/${PlaceId}`);
+           const responseData=  await sendRequest(`${process.env.REACT_APP_BACKEND_URL}/places/${PlaceId}`);
            setloadedPlaces(responseData.place);
            
     setFormData({
@@ -117,7 +117,7 @@ const DUMMY_PLACES = [{
         event.preventDefault();
       
       try{
-        await sendRequest(`http://localhost:5008/api/places/${PlaceId}`,'PATCH',JSON.stringify({
+        await sendRequest(`${process.env.REACT_APP_BACKEND_URL}/places/${PlaceId}`,'PATCH',JSON.stringify({
         
          title:formState.inputs.title.value,
          description:formState.inputs.description.value
@@ -127,7 +127,12 @@ const DUMMY_PLACES = [{
 
         }),
           
-          {'Content-Type':'application/json'}
+          {
+            'Content-Type':'application/json',
+             Authorization:  'Bearer ' + auth.token
+
+           
+        }
      
      
           
